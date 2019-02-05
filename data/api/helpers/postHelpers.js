@@ -7,5 +7,11 @@ module.exports = {
     },
     postPosts: function(post){
         return db('posts').insert(post)
+    },
+    getPostById: function (id) {
+        return db('posts').where({ id }).first()
+    },
+    deletePost: function (id) {
+        return db('posts').where({ id }).del()
     }
 };
