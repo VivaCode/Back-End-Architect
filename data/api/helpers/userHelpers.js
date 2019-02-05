@@ -13,4 +13,7 @@ module.exports = {
 
         return db('users').where({ id })
     },
+    deleteUser: function(id){
+
+    }
 };

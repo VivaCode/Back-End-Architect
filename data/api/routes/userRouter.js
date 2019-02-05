@@ -22,4 +22,5 @@ router.get('/:id', (req, res) => {
         });
 });
 
+router.delete('/:id')
 module.exports = router;

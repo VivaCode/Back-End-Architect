@@ -14,8 +14,13 @@ router.get('/', (req, res) => {
         .catch(err => res.status(500).json({ errorMessage: 'cant receive users' }))
 })
 
-router.post('/', (req, res) => {
-    const post = req.body
+router.post('/:id',lock, (req, res) => {
+    const id = req.params.id
+    const body = req.body;
+    if(body.userId){
+        res.status(403).json({errorMessage:'not authorized to add user id'})
+    }
+    const post = {...body,upvotes:0, userId: id}
     helper.postPosts(post)
         .then(users => {
             res.status(201).json(users)
