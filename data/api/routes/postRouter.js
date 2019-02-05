@@ -25,8 +25,7 @@ router.post('/', (req, res) => {
 
 router.get ('/:id', (req, res) => {
   const id = req.params.id;
-  helper
-    .getPostById (id)
+  helper.getPostById (id)
     .then (post => {
       res.status (200).json (post);
     })
@@ -34,15 +33,6 @@ router.get ('/:id', (req, res) => {
       res.status (500).json ({errorMessage: 'error retrieving posts'});
     });
 });
-
-router.delete('/:id', lock, (req, res) => {
-    const id = req.params.id;
-
-    helper.deletePost(id).then(post => {
-        res.status(200).json()
-    })
-
-})
 
 
 module.exports = router;

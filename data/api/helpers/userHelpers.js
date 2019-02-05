@@ -6,6 +6,11 @@ module.exports = {
         return db('users')
     },
     getPostsWithUser: function (id) {
-        return db('posts').where({ user_id: id })
+        return db('posts').where({ userId: id })
+    },
+    getUserById: function (id) {
+        const path = db('users').where({id})
+
+        return db('users').where({ id })
     },
 };
