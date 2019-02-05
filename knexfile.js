@@ -21,6 +21,7 @@ module.exports = {
   },
   useNullAsDefault: true,
 
+
   production: {
     client: 'pg',
     connection: dbConnection,
@@ -33,9 +34,9 @@ module.exports = {
     }
   },
   useNullAsDefault: true
-
-
-
 };
+
+
+
 
 
