@@ -3,7 +3,7 @@ const knex = require ('knex');
 const router = express.Router ();
 const helper = require('../helpers/userHelpers')
 
-//
+
 router.get('/', (req,res)=>{
     helper.getUsers()
     .then(users =>{
