@@ -14,14 +14,13 @@ module.exports = {
     client: 'sqlite3',
     connection: {
       filename: './data/artDatabase.sqlite3'
-    }
+    },
+    migrations: {
+      directory: './migrations'
+    },
+    useNullAsDefault: true,
   }, 
-  migrations: {
-    directory: './migrations'
-  },
-  useNullAsDefault: true,
-
-
+  
   production: {
     client: 'pg',
     connection: dbConnection,
