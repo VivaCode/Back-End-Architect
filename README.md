@@ -345,3 +345,42 @@
     "message": "invalid token"
   }
 ```
+
+
+### **get all users**
+*method url*: `/api/posts`
+
+*http method*: **[GET]**
+
+#### Response
+##### 200 (ok)
+
+###### Example response
+```
+[
+ {
+    "id": 12,
+    "imageUrl": "insertedImgurl",
+    "upvotes": 0,
+    "userId": 6,
+    "description": "a painting :)",
+    "postName": "mona lisa"
+ },
+ {
+    "id": 13,
+    "imageUrl": "insertedImgurl",
+    "upvotes": 0,
+    "userId": 6,
+    "description": "a painting :)",
+    "postName": "mona lisa"
+  },
+  {
+    "id": 14,
+    "imageUrl": "insertedImgurl",
+    "upvotes": 0,
+    "userId": 6,
+    "description": "a painting :)",
+    "postName": "starry night"
+  }
+]
+```
