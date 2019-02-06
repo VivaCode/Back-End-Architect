@@ -404,7 +404,7 @@
     "postName": "starry night"
 }
 ```
-### **get All post from user, without user info**
+### **get All posts from user, without user info**
 *method url*: `/api/users/posts/:id (id meaning id of the user)`
 
 *http method*: **[GET]**
@@ -452,7 +452,7 @@
 ```
 
 ### **Edit a Post**
-*method url*: `/api/users/:id`
+*method url*: `/api/posts/:id`
 
 *http method*: **[PUT]**
 
