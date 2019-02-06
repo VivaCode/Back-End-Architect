@@ -296,3 +296,52 @@
     "message": "invalid token"
   }
 ```
+
+### **create a user**
+*method url*: `/api/posts`
+
+*http method*: **[POST]**
+
+#### Headers
+
+| name           | type   | required | description              |
+| -------------- | ------ | -------- | ------------------------ |
+| `Content-Type` | String | Yes      | Must be application/json |
+| `authorization`| String | Yes      | token to Authorize user  |
+#### Body
+
+| name           | type   | required | description              |
+| -------------- | ------ | -------- | ------------------------ |
+| `postName`     | String | Yes      |                          |
+| `imageUrl`     | String | Yes      |                          |
+| `description`  | String | No       |                          |
+
+#### Example
+```
+  {
+    "postName": "Mona Lisa",
+    "imageUrl": "monaLisa.jpg",
+    "description": "cool painting i made",
+  }
+  ```
+
+#### Response
+##### 201 (created)
+###### Example Response
+```
+  {
+    "id": 1,
+    "postName": "Mona Lisa",
+    "imageUrl": "monaLisa.jpg",
+    "description": "cool painting i made",
+    "upvotes": 0,
+    "userId": 3
+  }
+```
+##### 403 (Forbidden)
+###### Example Response
+```
+  {
+    "message": "invalid token"
+  }
+```
