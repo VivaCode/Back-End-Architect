@@ -34,9 +34,21 @@
     "userImgUrl": "something.jpg"
   }
   ```
+
 #### Response
-##### 201 (ok)
-> created user
+##### 201 (created)
+###### Example Response
+```
+  {
+    "id": 1
+    "username": "brooks",
+    "password": "1234",
+    "fullName": "Brooks Poltl",
+    "email": "bpoltl1@gmail.com",
+    "userImgUrl": "something.jpg"
+  }
+  ```
+
 ##### 400 (Bad Request)
 ```
   {
