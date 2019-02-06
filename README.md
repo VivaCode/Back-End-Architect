@@ -347,7 +347,7 @@
 ```
 
 
-### **get all users**
+### **get all posts**
 *method url*: `/api/posts`
 
 *http method*: **[GET]**
@@ -383,4 +383,24 @@
     "postName": "starry night"
   }
 ]
+```
+
+### **get a single post**
+*method url*: `/api/posts/:id (as in id of the post)`
+
+*http method*: **[GET]**
+
+#### Response
+##### 200 (ok)
+
+###### Example response
+```
+{
+    "id": 14,
+    "imageUrl": "insertedImgurl",
+    "upvotes": 0,
+    "userId": 6,
+    "description": "a painting :)",
+    "postName": "starry night"
+}
 ```
