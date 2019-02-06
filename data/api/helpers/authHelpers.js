@@ -38,5 +38,14 @@ module.exports = {
     },
     loginUser: function(creds){
         return db('users').where ({username: creds.username}).first ();
+    },
+    adminCheck: function(req,res,next){
+        const adminValue = req.headers.admin;
+        if(adminValue == 'hunter2'){
+            next();
+        }
+        else{
+            return res.status(403).json({message: 'invalid admin password'})
+        }
     }
 }
