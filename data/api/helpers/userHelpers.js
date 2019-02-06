@@ -13,5 +13,8 @@ module.exports = {
     },
     deleteUser: function(id){
         return db('users').where({ id }).del()
+    },
+    editUser: function(body, id){
+        return db('users').where({ id }).update(body)
     }
 };
