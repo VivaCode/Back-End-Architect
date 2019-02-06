@@ -155,3 +155,60 @@
 ]
 ```
 
+### **get a all post from a user**
+*method url*: `/api/users/posts/:id`
+
+*http method*: **[GET]**
+
+#### Response
+##### 200 (ok)
+
+###### Example response
+```
+[
+  {
+    "id": 6,
+    "username": "brooks12345",
+    "password": "$2a$12$xEMuC6KExFMmz95p6jIAoe4CYT1oDPGBPHpxjR4FjIMmUGO09iR.m",
+    "fullName": "hasdjhkha",
+    "email": null,
+    "userImgUrl": null,
+    "posts": [
+        {
+          "id": 11,
+          "imageUrl": "insertedImgurl",
+          "upvotes": 0,
+          "userId": 6,
+          "description": "a painting :)",
+          "postName": "mona lisa"
+        },
+        {
+          "id": 12,
+          "imageUrl": "insertedImgurl",
+          "upvotes": 0,
+          "userId": 6,
+          "description": "a painting :)"
+          "postName": "mona lisa"
+        },
+        {
+          "id": 13,
+          "imageUrl": "insertedImgurl",
+          "upvotes": 0,
+          "userId": 6,
+          "description": "a painting :)",
+          "postName": "mona lisa"
+        },
+        {
+          "id": 14,
+          "imageUrl": "insertedImgurl",
+          "upvotes": 0,
+          "userId": 6,
+          "description": "a painting :)",
+          "postName": "starry night"
+         }
+        ]
+    }
+]
+```
+
+
