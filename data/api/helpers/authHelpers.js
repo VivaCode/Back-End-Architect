@@ -29,7 +29,7 @@ module.exports = {
         }
         const secret = process.env.JWT_SECRET
         const options = {
-            expiresIn: '45m',
+            expiresIn: '1y',
         }
         return jwt.sign(payload, secret, options)
     },
