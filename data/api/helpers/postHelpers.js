@@ -13,5 +13,8 @@ module.exports = {
     },
     deletePost: function (id) {
         return db('posts').where({ id }).del()
+    },
+    getUserWithPosts: function (id) {
+        return db('posts').where({ userId: id })
     }
 };

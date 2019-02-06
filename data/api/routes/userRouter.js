@@ -21,6 +21,36 @@ router.get('/:id', (req, res) => {
             res.status(500).json({ errorMessage: 'error retrieving posts' });
         });
 });
+// router.get ('/posts/:id', (req, res) => {
+//   const id = req.params.id;
+//   helper
+//     .getUserById (id)
+//     .then (user => {
+//       helper.getUserWithPosts(id).then(posts=>{
+//           user.posts = posts;
+//           res.status(200).json(user)
+//       })
+//     })
+//     .catch (err => {
+//       res.status (500).json ({errorMessage: 'error retrieving posts'});
+//     });
+// });
 
-router.delete('/:id')
+router.get('/posts/:id', (req, res) => {
+    const id = req.params.id
+    helper.getUserById(id)
+        .then(user => {
+            helper.getUserWithPosts(id)
+            .then(posts =>{
+                const userObj = user[0];
+                userObj.posts = posts;
+                res.status(200).json(user)
+            })
+        })
+        .catch(err => {
+            res.status(500).json({ errorMessage: 'error retrieving user' })
+        })
+})
+    
+
 module.exports = router;

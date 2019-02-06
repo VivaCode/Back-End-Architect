@@ -5,15 +5,10 @@ module.exports = {
     getUsers: function(){
         return db('users')
     },
-    getPostsWithUser: function (id) {
-        return db('posts').where({ userId: id })
-    },
     getUserById: function (id) {
-        const path = db('users').where({id})
-
         return db('users').where({ id })
     },
-    deleteUser: function(id){
-
+    getUserWithPosts: function (id) {
+        return db('posts').where({ userId: id })
     }
 };

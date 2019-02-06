@@ -39,5 +39,15 @@ router.get ('/:id', (req, res) => {
     });
 });
 
+router.get('/users/:id', (req, res) => {
+    const id = req.params.id;
+    helper.getUserWithPosts(id)
+        .then(post => {
+            res.status(200).json(post);
+        })
+        .catch(err => {
+            res.status(500).json({ errorMessage: 'error retrieving posts' });
+        });
+});
 
 module.exports = router;
