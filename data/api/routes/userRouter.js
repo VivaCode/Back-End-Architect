@@ -58,17 +58,23 @@ router.put('/:id', lock, (req, res) => {
             res.status(500).json({ errorMessage: 'user cannot be edited' })
         })
 })
-router.delete('/:id',lock, (req,res)=>{
+router.delete('/:id',lock, async(req,res)=>{
     const id = req.params.id;
     if(req.decodedToken.id!= id){
         return res.status(401).json({errorMessage: 'you are not authorized to delete this account'})
     }
-    helper.deleteUser(id)
-    .then(user=>{
-        res.status(200).json({message: 'your account has been deleted'})
-    })
-    .catch(err=>{
-        res.status(500).json({errorMessage: 'user cannot be deleted'})
-    })
+    try{
+        helper.deleteAllPostByUser(id).then(
+            res.json({message: 'users post deleted'})
+        )
+        helper.deleteUser (id).then (user => {
+        res.status (200).json ({message: 'your account has been deleted'});
+    });
+
+    }
+    catch(err){
+        res.status (500).json ({errorMessage: 'user cannot be deleted'});
+
+    }
 })
 module.exports = router;
