@@ -449,6 +449,20 @@
     }
 
 ]
+
+```
+### **Upvote a Post**
+*method url*: `/api/posts/upvote/:id (id of the post)`
+
+*http method*: **[PUT]**
+
+#### Response
+##### 200 (ok)
+###### Example Response
+```
+  {
+    "message":"upvote registered"
+  }
 ```
 
 ### **Edit a Post**
