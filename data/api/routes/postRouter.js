@@ -7,7 +7,7 @@ const lock = authHelper.lock;
 
 router.post('/', (req, res) => {
     const body = req.body
-    const post = { ...body, upvotes: 0, userId: req.decodedToken.id }
+    const post = { ...body, upvotes: 0}
     helper.postPosts(post)
         .then(posts => {
             res.status(201).json(posts)
