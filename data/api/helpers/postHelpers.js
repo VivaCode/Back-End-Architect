@@ -19,5 +19,8 @@ module.exports = {
     },
     editPost: function(id, body){
         return db('posts').where({ id }).update( body )
+    },
+    incrementUpvotes: function(id, count){
+        return db('posts').where({ id }).update({upvotes: count+ 1})
     }
 };

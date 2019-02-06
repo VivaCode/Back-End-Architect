@@ -45,6 +45,19 @@ router.get('/users/:id', (req, res) => {
             res.status(500).json({ errorMessage: 'error retrieving posts' });
         });
 });
+router.put('/upvote/:id',async(req,res)=>{
+    const id = req.params.id;
+    const body = await helper.getPostById(id);
+    const upvotes = body.upvotes;
+    try{
+        helper.incrementUpvotes (id, upvotes).then(result=>{
+            res.status(200).json({message: 'upvote registered'})
+        })
+    }
+    catch(err){
+        res.status(500).json({errorMessage: 'could not upvote this post'})
+    }
+})
 
 router.put('/:id',lock, async(req,res)=>{
     const id = req.params.id
