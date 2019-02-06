@@ -75,12 +75,12 @@
 ###### Example response
 ```
 {
-"id":3,
-"username":"brooks",
-"fullName":"Brooks Poltl",
-"email":null,
-"userImgUrl":null,
-"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2Vybmk"
+    "id":3,
+    "username":"brooks",
+    "fullName":"Brooks Poltl",
+    "email":null,
+    "userImgUrl":null,
+    "token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2Vybmk"
 }
 ```
 ##### 400 (Bad Request)
