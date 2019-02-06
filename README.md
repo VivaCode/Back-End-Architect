@@ -155,7 +155,7 @@
 ]
 ```
 
-### **get a all post from a user**
+### **get all post from a single user**
 *method url*: `/api/users/posts/:id`
 
 *http method*: **[GET]**
