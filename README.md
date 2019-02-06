@@ -338,6 +338,14 @@
     "userId": 3
   }
 ```
+##### 401 (Unauthorized)
+###### Example Response
+```
+  {
+    "message": "no token"
+  }
+```
+
 ##### 403 (Forbidden)
 ###### Example Response
 ```
