@@ -5,7 +5,7 @@ const helper = require('../helpers/postHelpers')
 const authHelper = require ('../helpers/authHelpers');
 const lock = authHelper.lock;
 
-router.post('/', lock, (req, res) => {
+router.post('/', (req, res) => {
     const body = req.body
     const post = { ...body, upvotes: 0, userId: req.decodedToken.id }
     helper.postPosts(post)
