@@ -106,29 +106,52 @@
 ###### Example response
 ```
 [
-{
-"id": 1,
-"username": "brooks3",
-"password": "$2a$12$UzYfINUnqfZh2n180pBswORvPCIrwHKp3d/MEZ69DaRxoLTYj26UG",
-"fullName": "Brooks Poltl",
-"email": null,
-"userImgUrl": null
-},
-{
-"id": 2,
-"username": "Bob",
-"password": "$2a$12$5.flIIREO8kVSwAGdL2iWO1IUKaaN7VgKN9zEX/Z7XXygBupMSQ0W",
-"fullName": "McBobbers",
-"email": "brannanconrad@gmail.com",
-"userImgUrl": ""
-},
-{
-"id": 3,
-"username": "spencer",
-"password": "$2a$12$5F3zLBEigPgcTQxzQFT23.hW3A15PDyelLAFU.ENtym5Jdn17ypjW",
-"fullName": "Spencer Curtis",
-"email": null,
-"userImgUrl": null
-},
+  {
+     "id": 1,
+     "username": "brooks3",
+     "password": "$2a$12$UzYfINUnqfZh2n180pBswORvPCIrwHKp3d/MEZ69DaRxoLTYj26UG",
+     "fullName": "Brooks Poltl",
+     "email": null,
+     "userImgUrl": null
+  },
+  {
+     "id": 2,
+     "username": "Bob",
+     "password": "$2a$12$5.flIIREO8kVSwAGdL2iWO1IUKaaN7VgKN9zEX/Z7XXygBupMSQ0W",
+     "fullName": "McBobbers",
+     "email": "brannanconrad@gmail.com",
+     "userImgUrl": ""
+  },
+  {
+    "id": 3,
+    "username": "spencer",
+    "password": "$2a$12$5F3zLBEigPgcTQxzQFT23.hW3A15PDyelLAFU.ENtym5Jdn17ypjW",
+    "fullName": "Spencer Curtis",
+    "email": null,
+    "userImgUrl": null
+  },
 ]
 ```
+
+### **get a single user**
+*method url*: `/api/users/:id`
+
+*http method*: **[GET]**
+
+#### Response
+##### 200 (ok)
+
+###### Example response
+```
+[
+  {
+    "id": 1,
+    "username": "brooks3",
+    "password": "$2a$12$UzYfINUnqfZh2n180pBswORvPCIrwHKp3d/MEZ69DaRxoLTYj26UG",
+    "fullName": "Brooks Poltl",
+    "email": null,
+    "userImgUrl": null
+  }
+]
+```
+
