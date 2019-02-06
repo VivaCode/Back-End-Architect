@@ -44,7 +44,7 @@ router.put('/:id', lock, (req, res) => {
     const id = req.params.id;
     const body = req.body;
     if (req.decodedToken.id != id) {
-        return res.status(403).json({ errorMessage: 'you are not authorized to edit this account' })
+        return res.status(401).json({ errorMessage: 'you are not authorized to edit this account' })
     }
     if(body.password){
         const hash = bcrypt.hashSync(body.password, 12);
@@ -52,7 +52,7 @@ router.put('/:id', lock, (req, res) => {
     }
     helper.editUser(body, id)
         .then(user => {
-            res.status(200).json({ errorMessage: 'your account has been edited' })
+            res.status(200).json({ message: 'your account has been edited' })
         })
         .catch(err => {
             res.status(500).json({ errorMessage: 'user cannot be edited' })
@@ -61,11 +61,11 @@ router.put('/:id', lock, (req, res) => {
 router.delete('/:id',lock, (req,res)=>{
     const id = req.params.id;
     if(req.decodedToken.id!= id){
-        return res.status(403).json({errorMessage: 'you are not authorized to delete this account'})
+        return res.status(401).json({errorMessage: 'you are not authorized to delete this account'})
     }
     helper.deleteUser(id)
     .then(user=>{
-        res.status(200).json({errorMessage: 'your account has been deleted'})
+        res.status(200).json({message: 'your account has been deleted'})
     })
     .catch(err=>{
         res.status(500).json({errorMessage: 'user cannot be deleted'})
