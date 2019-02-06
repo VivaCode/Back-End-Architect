@@ -155,7 +155,7 @@
 ]
 ```
 
-### **get all post from a single user**
+### **get a user profile with all post**
 *method url*: `/api/users/posts/:id (id meaning id of the user)`
 
 *http method*: **[GET]**
@@ -403,4 +403,50 @@
     "description": "a painting :)",
     "postName": "starry night"
 }
+```
+### **get All post from user, without user info**
+*method url*: `/api/users/posts/:id (id meaning id of the user)`
+
+*http method*: **[GET]**
+
+#### Response
+##### 200 (ok)
+
+###### Example response
+```
+[
+  {
+        "id": 11,
+        "imageUrl": "insertedImgurl",
+        "upvotes": 0,
+        "userId": 6,
+        "description": "a painting :)",
+        "postName": "mona lisa"
+    },
+    {
+        "id": 12,
+        "imageUrl": "insertedImgurl",
+        "upvotes": 0,
+        "userId": 6,
+        "description": "a painting :)",
+        "postName": "mona lisa"
+    },
+    {
+        "id": 13,
+        "imageUrl": "insertedImgurl",
+        "upvotes": 0,
+        "userId": 6,
+        "description": "a painting :)",
+        "postName": "mona lisa"
+    },
+    {
+        "id": 14,
+        "imageUrl": "insertedImgurl",
+        "upvotes": 0,
+        "userId": 6,
+        "description": "a painting :)",
+        "postName": "starry night"
+    }
+
+]
 ```
