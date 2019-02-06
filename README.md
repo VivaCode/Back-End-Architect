@@ -297,7 +297,7 @@
   }
 ```
 
-### **create a post**
+### **create a Post**
 *method url*: `/api/posts`
 
 *http method*: **[POST]**
