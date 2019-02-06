@@ -5,7 +5,16 @@ module.exports = {
     getUsers: function(){
         return db('users')
     },
-    getPostsWithUser: function (id) {
-        return db('posts').where({ user_id: id })
+    getUserById: function (id) {
+        return db('users').where({ id })
     },
+    getUserWithPosts: function (id) {
+        return db('posts').where({ userId: id })
+    },
+    deleteUser: function(id){
+        return db('users').where({ id }).del()
+    },
+    editUser: function(body, id){
+        return db('users').where({ id }).update(body)
+    }
 };

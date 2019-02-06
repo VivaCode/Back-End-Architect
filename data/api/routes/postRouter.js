@@ -5,6 +5,15 @@ const helper = require('../helpers/postHelpers')
 const authHelper = require ('../helpers/authHelpers');
 const lock = authHelper.lock;
 
+router.post('/', lock, (req, res) => {
+    const body = req.body
+    const post = { ...body, upvotes: 0, userId: req.decodedToken.id }
+    helper.postPosts(post)
+        .then(posts => {
+            res.status(201).json(posts)
+        })
+        .catch(err => res.status(500).json({ errorMessage: 'cant create post' }))
+})
 
 router.get('/', (req, res) => {
     helper.getPosts()
@@ -14,35 +23,61 @@ router.get('/', (req, res) => {
         .catch(err => res.status(500).json({ errorMessage: 'cant receive users' }))
 })
 
-router.post('/', (req, res) => {
-    const post = req.body
-    helper.postPosts(post)
-        .then(users => {
-            res.status(201).json(users)
-        })
-        .catch(err => res.status(500).json({ errorMessage: 'cant receive users' }))
-})
 
 router.get ('/:id', (req, res) => {
   const id = req.params.id;
-  helper
-    .getPostById (id)
+  helper.getPostById(id)
     .then (post => {
       res.status (200).json (post);
     })
     .catch (err => {
-      res.status (500).json ({errorMessage: 'error retrieving posts'});
+      res.status (500).json ({errorMessage: 'error retrieving post'});
     });
 });
 
-router.delete('/:id', lock, (req, res) => {
+router.get('/users/:id', (req, res) => {
     const id = req.params.id;
+    helper.getUserWithPosts(id)
+        .then(post => {
+            res.status(200).json(post);
+        })
+        .catch(err => {
+            res.status(500).json({ errorMessage: 'error retrieving posts' });
+        });
+});
 
-    helper.deletePost(id).then(post => {
-        res.status(200).json()
-    })
-
+router.put('/:id',lock, async(req,res)=>{
+    const id = req.params.id
+    const body = req.body
+    const oldBody = await helper.getPostById(id)
+    if(oldBody.userId != req.decodedToken.id){
+        return res.status(401).json({errorMessage: "not authorized to edit this post"})
+    }
+    try{
+        helper.editPost(id, body)
+            .then(post => {
+                res.status(200).json({message: "your post has been edited"})
+            })
+    }
+    catch(err){
+        res.status(500).json({ errorMessage: "could not edit post" })
+    }
 })
-
+router.delete('/:id', lock, async(req, res) => {
+    const id = req.params.id
+    const body = await helper.getPostById(id)
+    if (body.userId != req.decodedToken.id) {
+        return res.status(401).json({ errorMessage: "you are not authorized to delete this post" })
+    }
+    try{
+        helper.deletePost(id)
+            .then(result => {
+                res.status(200).json({ message: "post successfully deleted" })
+            })
+    }
+    catch(err){
+        res.status(500).json({ errorMessage: "error deleting user" })
+    }
+})
 
 module.exports = router;

@@ -8,10 +8,16 @@ module.exports = {
     postPosts: function(post){
         return db('posts').insert(post)
     },
-    getPostById: function (id) {
+    getPostById: function(id){
         return db('posts').where({ id }).first()
+    },
+    getUserWithPosts: function (id) {
+        return db('posts').where({ userId: id })
     },
     deletePost: function (id) {
         return db('posts').where({ id }).del()
+    },
+    editPost: function(id, body){
+        return db('posts').where({ id }).update( body )
     }
 };

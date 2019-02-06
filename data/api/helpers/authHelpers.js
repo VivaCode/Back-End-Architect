@@ -9,7 +9,7 @@ module.exports = {
             if (token) {
                 jwt.verify (token, process.env.JWT_SECRET, (err, decodedToken) => {
                     if (err) {
-                        res.status (401).json ({message: 'invalid token'});
+                        res.status (403).json ({message: 'invalid token'});
                     }else {
                         req.decodedToken = decodedToken;
                         next ();
@@ -22,9 +22,10 @@ module.exports = {
                 }
 
     },
+
     generateToken: function(user){
         const payload = {
-            username: user.username,
+            id: user.id,
         }
         const secret = process.env.JWT_SECRET
         const options = {
