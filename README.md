@@ -211,7 +211,7 @@
 ]
 ```
 
-### **Register a user**
+### **Edit a User Account**
 *method url*: `/api/user/:id`
 
 *http method*: **[PUT]**
@@ -253,6 +253,40 @@
 ```
   {
     "errorMessage": "you are not authorized to edit this account"
+  }
+```
+##### 403 (Forbidden)
+###### Example Response
+```
+  {
+    "message": "invalid token"
+  }
+```
+### **Delete an Account**
+*method url*: `/api/user/:id`
+
+*http method*: **[DELETE]**
+
+#### Headers
+
+| name           | type   | required | description              |
+| -------------- | ------ | -------- | ------------------------ |
+| `Content-Type` | String | Yes      | Must be application/json |
+| `authorization`| String | Yes      | token to Authorize user  |
+
+#### Response
+##### 200 (ok)
+###### Example Response
+```
+  {
+    "message":"your account has been deleted"
+  }
+```
+##### 401 (Unauthorized)
+###### Example Response
+```
+  {
+    "errorMessage": "you are not authorized to delete this account"
   }
 ```
 ##### 403 (Forbidden)
