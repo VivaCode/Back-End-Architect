@@ -16,5 +16,8 @@ module.exports = {
     },
     deletePost: function (id) {
         return db('posts').where({ id }).del()
+    },
+    editPost: function(id, body){
+        return db('posts').where({ id }).update( body )
     }
 };

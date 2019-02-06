@@ -46,7 +46,23 @@ router.get('/users/:id', (req, res) => {
         });
 });
 
-
+router.put('/:id',lock, async(req,res)=>{
+    const id = req.params.id
+    const body = req.body
+    const oldBody = await helper.getPostById(id)
+    if(oldBody.userId != req.decodedToken.id){
+        return res.status(403).json({errorMessage: "not authorized to edit this post"})
+    }
+    try{
+        helper.editPost(id, body)
+            .then(post => {
+                res.status(200).json(post)
+            })
+    }
+    catch(err){
+        res.status(500).json({ errorMessage: "could not edit post" })
+    }
+})
 router.delete('/:id', lock, async(req, res) => {
     const id = req.params.id
     const body = await helper.getPostById(id)
