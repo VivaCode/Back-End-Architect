@@ -5,7 +5,10 @@ const helper = require('../helpers/authHelpers')
 const bcrypt = require('bcryptjs')
 
 router.post('/register', (req, res) => {
-    const user = req.body;
+    let user = req.body;
+    if(!user.userImgUrl){
+        user = {...user, userImgUrl:'https://images.pexels.com/photos/724994/pexels-photo-724994.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'}
+    }
     if (!user.username) {
         res.status (400).json ({errorMessage: 'missing username'});
         }

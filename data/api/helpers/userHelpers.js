@@ -14,6 +14,9 @@ module.exports = {
     deleteUser: function(id){
         return db('users').where({ id }).del()
     },
+    deleteAllPostByUser: function(id){
+        
+    },
     editUser: function(body, id){
         return db('users').where({ id }).update(body)
     }
