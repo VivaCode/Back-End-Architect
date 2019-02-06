@@ -405,7 +405,7 @@
 }
 ```
 ### **get All posts from user, without user info**
-*method url*: `/api/users/posts/:id (id meaning id of the user)`
+*method url*: `/api/posts/users/:id (id meaning id of the user)`
 
 *http method*: **[GET]**
 
