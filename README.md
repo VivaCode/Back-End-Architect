@@ -500,3 +500,37 @@
     "message": "invalid token"
   }
 ```
+### **Delete a Post**
+*method url*: `/api/posts/:id (id of the post)`
+
+*http method*: **[DELETE]**
+
+#### Headers
+
+| name           | type   | required | description              |
+| -------------- | ------ | -------- | ------------------------ |
+| `Content-Type` | String | Yes      | Must be application/json |
+| `authorization`| String | Yes      | token to Authorize user  |
+
+#### Response
+##### 200 (ok)
+###### Example Response
+```
+  {
+    "message":"post successfully deleted"
+  }
+```
+##### 401 (Unauthorized)
+###### Example Response
+```
+  {
+    "errorMessage": "you are not authorized to delete this post"
+  }
+```
+##### 403 (Forbidden)
+###### Example Response
+```
+  {
+    "message": "invalid token"
+  }
+```
