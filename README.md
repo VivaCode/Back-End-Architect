@@ -212,7 +212,7 @@
 ```
 
 ### **Edit a User Account**
-*method url*: `/api/user/:id`
+*method url*: `/api/users/:id`
 
 *http method*: **[PUT]**
 
@@ -263,7 +263,7 @@
   }
 ```
 ### **Delete an Account**
-*method url*: `/api/user/:id`
+*method url*: `/api/users/:id`
 
 *http method*: **[DELETE]**
 
@@ -449,4 +449,54 @@
     }
 
 ]
+```
+
+### **Edit a Post**
+*method url*: `/api/users/:id`
+
+*http method*: **[PUT]**
+
+#### Headers
+
+| name           | type   | required | description              |
+| -------------- | ------ | -------- | ------------------------ |
+| `Content-Type` | String | Yes      | Must be application/json |
+| `authorization`| String | Yes      | token to Authorize user  |
+#### Body
+
+| name           | type   | required | description              |
+| -------------- | ------ | -------- | ------------------------ |
+| `postName`     | String | No       |                          |
+| `imageUrl`     | String | No       |                          |
+| `description`  | String | No       |                          |
+
+
+#### Example
+```
+  {
+    "postName": "my masterpiece",
+    "imageUrl": "hunter2.jpg",
+  }
+  ```
+#### Response
+##### 200 (ok)
+###### Example Response
+```
+  {
+    "message":"your post has been edited"
+  }
+```
+##### 401 (Unauthorized)
+###### Example Response
+```
+  {
+    "errorMessage": "not authorized to edit this post"
+  }
+```
+##### 403 (Forbidden)
+###### Example Response
+```
+  {
+    "message": "invalid token"
+  }
 ```
