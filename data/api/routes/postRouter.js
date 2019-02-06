@@ -5,6 +5,15 @@ const helper = require('../helpers/postHelpers')
 const authHelper = require ('../helpers/authHelpers');
 const lock = authHelper.lock;
 
+router.post('/', lock, (req, res) => {
+    const body = req.body
+    const post = { ...body, upvotes: 0, userId: req.decodedToken.id }
+    helper.postPosts(post)
+        .then(users => {
+            res.status(201).json(users)
+        })
+        .catch(err => res.status(500).json({ errorMessage: 'cant receive users' }))
+})
 
 router.get('/', (req, res) => {
     helper.getPosts()
@@ -14,15 +23,6 @@ router.get('/', (req, res) => {
         .catch(err => res.status(500).json({ errorMessage: 'cant receive users' }))
 })
 
-router.post('/',lock, (req, res) => {
-    const body = req.body
-    const post = {...body,upvotes:0, userId: req.decodedToken.id}
-    helper.postPosts(post)
-        .then(users => {
-            res.status(201).json(users)
-        })
-        .catch(err => res.status(500).json({ errorMessage: 'cant receive users' }))
-})
 
 router.get ('/:id', (req, res) => {
   const id = req.params.id;
