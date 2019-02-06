@@ -29,7 +29,7 @@
   {
     "username": "brooks",
     "password": "1234",
-    "fullName": 'Brooks Poltl',
+    "fullName": "Brooks Poltl",
     "email": "bpoltl1@gmail.com",
     "userImgUrl": "something.jpg"
   }
@@ -211,4 +211,54 @@
 ]
 ```
 
+### **Register a user**
+*method url*: `/api/user/:id`
 
+*http method*: **[PUT]**
+
+#### Headers
+
+| name           | type   | required | description              |
+| -------------- | ------ | -------- | ------------------------ |
+| `Content-Type` | String | Yes      | Must be application/json |
+| `authorization`| String | Yes      | token to Authorize user  |
+#### Body
+
+| name           | type   | required | description              |
+| -------------- | ------ | -------- | ------------------------ |
+| `username`     | String | No       | Must be unique           |
+| `fullName`     | String | No       |                          |
+| `password`     | String | No       |                          |
+| `email`        | String | No       |                          |
+| `userImgUrl`   | String | No       |                          |
+
+#### Example
+```
+  {
+    "username": "brookspoltl",
+    "password": "hunter2",
+    "fullName": "Brooks Poltl",
+  }
+  ```
+#### Response
+##### 200 (ok)
+###### Example Response
+```
+  {
+    "message":"your account has been edited"
+  }
+```
+##### 401 (Unauthorized)
+###### Example Response
+```
+  {
+    "errorMessage": "you are not authorized to edit this account"
+  }
+```
+##### 403 (Forbidden)
+###### Example Response
+```
+  {
+    "message": "invalid token"
+  }
+```
