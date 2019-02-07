@@ -481,7 +481,7 @@
 ###### Example Response
 ```
   {
-    "message":"upvote registered"
+    "upvotes": 6
   }
 ```
 
