@@ -8,7 +8,9 @@
   "scripts": {
     "start": "node index.js",
     "test": "cross-env DB_ENV=testing jest --watch --verbose",
-    "server": "cross-env DB_ENV=testing nodemon index.js"
+    "server": "cross-env DB_ENV=testing nodemon index.js",
+    "testing":"knex migrate:rollback && knex migrate:latest",
+    "lazy":"git commit -am 'update' && git push"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
