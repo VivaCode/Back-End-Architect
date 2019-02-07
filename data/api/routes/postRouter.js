@@ -51,7 +51,7 @@ router.put('/upvote/:id',async(req,res)=>{
     const upvotes = body.upvotes;
     try{
         helper.incrementUpvotes (id, upvotes).then(result=>{
-            res.status(200).json({message: 'upvote registered'})
+            res.status(200).json({upvotes: upvotes + 1})
         })
     }
     catch(err){
