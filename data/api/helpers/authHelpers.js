@@ -26,6 +26,7 @@ module.exports = {
     generateToken: function(user){
         const payload = {
             id: user.id,
+            username: user.username
         }
         const secret = process.env.JWT_SECRET
         const options = {
